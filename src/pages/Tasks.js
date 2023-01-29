@@ -16,7 +16,7 @@ export default function Tasks() {
     const { orgid, teamid } = useParams();
 
     const loadAssignments = async () => {
-      await fetch(`https://tadashi-srv.herokuapp.com/api/assignments/${orgid}/team/${teamid}`, {
+      await fetch(`http://localhost:3001/api/assignments/${orgid}/team/${teamid}`, {
                 credentials: 'include'
             })
             .then(res => res.json())

@@ -16,7 +16,7 @@ export default function PostCreation() {
     const savePost = async () => {
         setDate(new Date());
         const post = { title, content, date };
-        await fetch(`https://tadashi-srv.herokuapp.com/api/board/${orgid}/${teamid}`, {
+        await fetch(`http://localhost:3001/api/board/${orgid}/${teamid}`, {
             credentials: 'include',
             method: 'POST',
             headers: {

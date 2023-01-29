@@ -9,11 +9,12 @@ export default function Landing() {
     const [password, setPassword] = useState('');
 
     function getStatus() {
-        fetch('https://tadashi-srv.herokuapp.com/api/users/self', {
+        fetch('http://localhost:3001/api/users/self', {
             credentials: 'include'
         })
             .then(res => res.json())
             .then(data => {
+                console.log(data)
                 if(data.status == 'success') {
                     history.push('/home');
                 }
@@ -21,7 +22,7 @@ export default function Landing() {
     }
 
     function attemptLogin() {
-        fetch('https://tadashi-srv.herokuapp.com/login/signin', {
+        fetch('http://localhost:3001/login/signin', {
             credentials: 'include',
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -30,6 +31,8 @@ export default function Landing() {
         .then(res => res.json())
         .then(data => {
             if(data.status == 'success') {
+                console.log(email);
+                console.log(password);
                 history.push('/home');
             } else {
                 // failed login behavior

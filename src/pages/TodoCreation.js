@@ -50,7 +50,7 @@ export default function TodoCreation() {
 
     // get assignment list from api : names & due dates
     const loadAssignments = async () => {
-        await fetch(`https://tadashi-srv.herokuapp.com/api/assignments/${orgid}/team/${teamid}`, {
+        await fetch(`http://localhost:3001/api/assignments/${orgid}/team/${teamid}`, {
                 credentials: 'include'
             })
             .then(res => res.json())
@@ -66,7 +66,7 @@ export default function TodoCreation() {
 
     // get team member list from api : names
     const loadMembers = async () => {
-        await fetch(`https://tadashi-srv.herokuapp.com/api/org/${orgid}/team/${teamid}`, {
+        await fetch(`http://localhost:3001/api/org/${orgid}/team/${teamid}`, {
                 credentials: 'include'
             })
             .then(res => res.json())
@@ -83,7 +83,7 @@ export default function TodoCreation() {
     // post a new todo to api
     const postTodo = async () => {
         const todo = { content: todo_content, date: todo_due, assignedId: assignee.id, assignedName: assignee.name };
-        await fetch(`https://tadashi-srv.herokuapp.com/api/assignments/${orgid}/${selected_assignment.id}/team/${teamid}`, {
+        await fetch(`http://localhost:3001/api/assignments/${orgid}/${selected_assignment.id}/team/${teamid}`, {
             credentials: 'include',
             method: 'POST',
             headers: {

@@ -15,7 +15,7 @@ export default function Chats() {
     const [msgData, setMsgData] = useState([]);
 
     const loadMsgs = () => {
-        fetch(`https://tadashi-srv.herokuapp.com/api/msg/${orgid}/${teamid}`, {
+        fetch(`http://localhost:3001/api/msg/${orgid}/${teamid}`, {
             credentials: 'include'
         })
             .then(res => res.json())
@@ -26,7 +26,7 @@ export default function Chats() {
     const sendMsg = async (text) => {
         if(text.length != 0) {
             console.log(`FETCH POST: ${text}`);
-            await fetch(`https://tadashi-srv.herokuapp.com/api/msg/${orgid}/${teamid}`,
+            await fetch(`http://localhost:3001/api/msg/${orgid}/${teamid}`,
             {
                 credentials: 'include',
                 headers: {
